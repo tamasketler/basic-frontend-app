@@ -1,0 +1,9 @@
+Services:
+ - AuthService
+ - FileService
+ - ListService -> maybe not need
+
+Pages:
+ - login/register page
+ - home page
+ - Files page

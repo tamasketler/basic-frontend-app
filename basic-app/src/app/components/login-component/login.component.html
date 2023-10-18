@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="login-container container bg-body-secondary rounded p-3 mt-5" [ngSwitch]="this.isUser">
+        <ng-container *ngSwitchCase="true">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="John Doe...">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password...">
+            </div>
+            <div class="col align-self-end">
+                <button (click)="this.signIn()" type="submit" class="btn btn-primary">Sign in</button>
+            </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="false">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="John Doe...">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password...">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Password</label>
+                <input type="text" class="form-control" id="email" placeholder="user@bingo.com">
+            </div>
+            <div class="col align-self-end">
+                <button (click)="this.registerSignIn()" type="submit" class="btn btn-primary">Register and Sign
+                    in</button>
+            </div>
+        </ng-container>
+    </div>
+</div>
