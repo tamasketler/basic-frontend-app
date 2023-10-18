@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, tap } from 'rxjs';
+import { FileData } from 'src/app/models/file.model';
+import { FileListService } from 'src/app/services/file-list.service';
 
 @Component({
   selector: 'app-file-list-component',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FileListComponent implements OnInit {
 
-  public constructor() { }
+  protected get hasFile(): boolean {
+    return this._files.some(f => f);
+  }
+
+  protected files$: Observable<FileData[]> = this._fileService.getFiles().pipe(
+    tap(model => this._files = model)
+  );
+
+  private _files: FileData[] = [];
+
+  public constructor(
+    private readonly _fileService: FileListService
+  ) { }
 
   public ngOnInit(): void {
+  }
+
+  protected addFile(): void {
+
   }
 
 }

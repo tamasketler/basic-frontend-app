@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home-component/home.component';
 import { LoginComponent } from './components/login-component/login.component';
 import { FileListComponent } from './components/file-list-component/file-list.component';
 import { PageNotFoundComponent } from './components/page-notfound-component/page-notfound.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PageNotFoundComponent } from './components/page-notfound-component/page
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

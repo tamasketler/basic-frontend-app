@@ -1,1 +1,35 @@
-<p>file-list-component works!</p>
+<div class="container">
+    <h3>Files</h3>
+
+    <section *ngIf="files$ | async as files, else loading">
+        <div *ngIf="files.length > 0 else empty">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">File name</th>
+                        <th scope="col">Last modified</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let file in files; index as i">
+                        <td>{{i}}</td>
+                        <td>{{file.name}}</td>
+                        <td>{{file.lastModified}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+
+<ng-template #loading>
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</ng-template>
+
+<ng-template #empty>
+    <h4>There are no files currently</h4>
+    <button type="button" class="btn" (click)="this.addFile()">Add File</button>
+</ng-template>
