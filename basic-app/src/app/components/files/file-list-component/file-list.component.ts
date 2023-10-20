@@ -27,7 +27,7 @@ export class FileListComponent implements OnInit {
   public ngOnInit(): void {
   }
 
-  protected addFile(): void {
+  protected delete(): void {
 
   }
 

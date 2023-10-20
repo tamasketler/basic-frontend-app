@@ -8,6 +8,10 @@ import { Router } from "@angular/router";
 })
 export class AuthService {
 
+    public get isAuthenticated(): boolean {
+        return this._isAuthenticated;
+    }
+
     public get isUser(): boolean {
         return this._users.some(u => u);
     }
@@ -15,6 +19,8 @@ export class AuthService {
     private _users: User[] = [
         { username: "tamas", password: "admin", email: "tamas@gmail.com" }
     ];
+
+    private _isAuthenticated: boolean = false;
 
     public constructor(
         private readonly _router: Router
@@ -27,7 +33,12 @@ export class AuthService {
     private _login(data: LoginData): void {
         const user = this._users.find(u => u.username === data.username);
         if (user) {
-            user.password === data.password ? this._router.navigateByUrl("/files") : alert("Password is not correct!");
+            if (user.password === data.password) {
+                this._isAuthenticated = true;
+                this._router.navigateByUrl("/files");
+            } else {
+                alert("Password is not correct!");
+            }
         } else {
             alert("The user does not exist!");
         }

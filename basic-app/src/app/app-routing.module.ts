@@ -3,12 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login-component/login.component';
 import { HomeComponent } from './components/home-component/home.component';
 import { PageNotFoundComponent } from './components/page-notfound-component/page-notfound.component';
-import { FileListComponent } from './components/file-list-component/file-list.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'files', component: FileListComponent },
+  {
+    path: 'files',
+    loadChildren: () => import('./components/files/files.module').then(m => m.FilesModule),
+    canActivate: [AuthGuard]
+  },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];

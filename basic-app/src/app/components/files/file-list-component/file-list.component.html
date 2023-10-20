@@ -1,5 +1,5 @@
-<div class="container">
-    <h3>Files</h3>
+<div class="p-2">
+    <h2>Files</h2>
 
     <section *ngIf="files$ | async as files, else loading">
         <div *ngIf="files.length > 0 else empty">
@@ -30,6 +30,6 @@
 </ng-template>
 
 <ng-template #empty>
-    <h4>There are no files currently</h4>
-    <button type="button" class="btn" (click)="this.addFile()">Add File</button>
+    <h4>There are no files uploaded</h4>
+    <a type="button" class="btn btn-primary" routerLink="add">Add File</a>
 </ng-template>
