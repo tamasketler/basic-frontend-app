@@ -3,6 +3,8 @@
 <form [formGroup]="this.form">
     <div class="mb-3">
         <label for="file" class="form-label">File selection</label>
-        <input class="form-control" type="file" formControlName="file">
+        <input class="form-control" type="file" formControlName="file" (change)="onChange($event)" #fileUpload>
     </div>
 </form>
+
+<button type="button" class="btn btn-primary" (click)="this.add()" [disabled]="!this.fileProvided">Add</button>

@@ -6,6 +6,7 @@ import { AppRoutingModule } from "src/app/app-routing.module";
 import { ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { FilesRoutingModule } from "./files-routing.module";
+import { FilesComponent } from "./files.component";
 
 @NgModule({
     imports: [
@@ -14,6 +15,7 @@ import { FilesRoutingModule } from "./files-routing.module";
         ReactiveFormsModule
     ],
     declarations: [
+        FilesComponent,
         FileListComponent,
         FileAddComponent
     ]

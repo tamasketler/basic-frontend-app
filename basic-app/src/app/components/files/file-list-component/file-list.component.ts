@@ -27,8 +27,10 @@ export class FileListComponent implements OnInit {
   public ngOnInit(): void {
   }
 
-  protected delete(): void {
-
+  protected delete(id: number): void {
+    this._fileService.files.forEach((f, index) => {
+      if (index == id) this._fileService.files.splice(index, 1);
+    });
   }
 
 }

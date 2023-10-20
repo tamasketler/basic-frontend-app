@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
 
   protected signIn(): void {
     const { username, password } = this.form.value;
-    console.log(username)
     this._auth.login({
       username: username ?? "",
       password: password ?? ""

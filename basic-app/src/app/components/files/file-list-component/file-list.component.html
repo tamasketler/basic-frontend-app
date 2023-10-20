@@ -1,5 +1,8 @@
 <div class="p-2">
-    <h2>Files</h2>
+    <div class="hstack gap-3">
+        <h2>Files</h2>
+        <a type="button" class="btn btn-primary ms-auto" routerLink="/files/add">Add File</a>
+    </div>
 
     <section *ngIf="files$ | async as files, else loading">
         <div *ngIf="files.length > 0 else empty">
@@ -12,10 +15,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let file in files; index as i">
+                    <tr *ngFor="let data of files; index as i">
                         <td>{{i}}</td>
-                        <td>{{file.name}}</td>
-                        <td>{{file.lastModified}}</td>
+                        <td>{{data.file.name}}</td>
+                        <td>{{data.file.lastModified | date }}</td>
+                        <td>
+                            <button type="button" class="btn btn-outline-danger"
+                                (click)="this.delete(i)">Delete</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -31,5 +38,4 @@
 
 <ng-template #empty>
     <h4>There are no files uploaded</h4>
-    <a type="button" class="btn btn-primary" routerLink="add">Add File</a>
 </ng-template>
