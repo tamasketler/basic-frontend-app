@@ -4,11 +4,13 @@ import { FileAddComponent } from "./file-add/file-add.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "src/app/app-routing.module";
 import { ReactiveFormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
+import { FilesRoutingModule } from "./files-routing.module";
 
 @NgModule({
     imports: [
-        BrowserModule,
-        AppRoutingModule,
+        CommonModule,
+        FilesRoutingModule,
         ReactiveFormsModule
     ],
     declarations: [
