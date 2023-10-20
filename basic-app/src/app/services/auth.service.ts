@@ -17,7 +17,7 @@ export class AuthService {
     }
 
     private _users: User[] = [
-        { username: "tamas", password: "admin", email: "tamas@gmail.com" }
+        { username: "admin", password: "admin", email: "admin@gmail.com" }
     ];
 
     private _isAuthenticated: boolean = false;

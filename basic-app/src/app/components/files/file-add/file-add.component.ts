@@ -47,6 +47,8 @@ export class FileAddComponent implements OnInit {
     console.log(model)
 
     this._fileService.files.push(model);
+
+    alert("Upload successfull!");
     this._router.navigateByUrl("/files/list");
   }
 
